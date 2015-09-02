@@ -1,7 +1,14 @@
 def is_palindrome(sentence):
-    if sentence[:] == sentence[-1::-1]:
-        return "That's a Palindrome!"
-    return "That's not a Palindrome!"
+    pal = []
+    for x in sentence:
+        if x.isalnum() == True:
+            pal.append(x.lower())
+        else:
+            pass
+    if pal[:] == pal[-1::-1]:
+        return True
+    else:
+        return False
 
 
 def main():
