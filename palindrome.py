@@ -1,15 +1,24 @@
+import re
+# def is_palindrome(sentence):
+#     pal = []
+#     for x in sentence:
+#         if x.isalnum() == True:
+#             pal.append(x.lower())
+#         else:
+#             pass
+#     if pal[:] == pal[-1::-1]:
+#         return True
+#     else:
+#         return False
 def is_palindrome(sentence):
-    pal = []
-    for x in sentence:
-        if x.isalnum() == True:
-            pal.append(x.lower())
-        else:
-            pass
-    if pal[:] == pal[-1::-1]:
+    thing = re.sub(r'[^A-Za-z]',"",sentence).lower()
+    if len(thing) <=1:
         return True
     else:
-        return False
-
+        if thing[0] == thing[-1]:
+            return is_palindrome(thing[1:-1])
+        else:
+            return False
 
 def main():
     name = input("Please enter a word or sentence > ")
