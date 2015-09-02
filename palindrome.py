@@ -10,15 +10,28 @@ import re
 #         return True
 #     else:
 #         return False
+# def is_palindrome(sentence):
+#     thing = re.sub(r'[^A-Za-z]',"",sentence).lower()
+#     if len(thing) <=1:
+#         return True
+#     else:
+#         if thing[0] == thing[-1]:
+#             return is_palindrome(thing[1:-1])
+#         else:
+#             return False
 def is_palindrome(sentence):
     thing = re.sub(r'[^A-Za-z]',"",sentence).lower()
-    if len(thing) <=1:
+    count = 0
+    test = []
+    for x in thing:
+        if x == thing[-1-count]:
+            count += 1
+        else:
+            pass
+    if count == len(thing):
         return True
     else:
-        if thing[0] == thing[-1]:
-            return is_palindrome(thing[1:-1])
-        else:
-            return False
+        return False
 
 def main():
     name = input("Please enter a word or sentence > ")
@@ -26,3 +39,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+x, y = (1,2)
